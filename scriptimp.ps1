@@ -43,8 +43,8 @@ $tweaks = @(
     }
 
     Function DownloadXampp{
-        Invoke-WebRequest https://excellmedia.dl.sourceforge.net/project/xampp/XAMPP%20Windows/5.6.40/xampp-windows-x64-5.6.40-1-VC11-installer.exe -OutFile Xapp64.exe
-        ./Xapp64.exe
+        Show-Choco-Menu -Title "Do you want to install Xampp?" -ChocoInstall "xamppinstallation --version=5.60"
+       
     }
     
     Function InstallRishabhProgs {
