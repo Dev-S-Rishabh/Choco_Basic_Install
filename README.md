@@ -1,1 +1,3 @@
-# powershell -nop -c " iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Paneerdev/java-xampp/main/scriptimp.ps1'))"
+# Windows 10 powershell script for installing some programs which are necessary for my study. This script is created by Rishabh Singh.
+Installaion is simple and easy.
+Step 1:- Open 
