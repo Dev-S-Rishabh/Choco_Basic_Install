@@ -13,6 +13,34 @@ $tweaks = @(
     "DownloadXampp"
     
 
+    function Show-Choco-Menu1 {
+        param(
+            [Parameter(Mandatory)]
+            [ValidateNotNullOrEmpty()]
+            [string]$Title,
+        
+            [Parameter(Mandatory)]
+            [ValidateNotNullOrEmpty()]
+            [string]$ChocoInstall
+        )
+       
+     do
+     {
+        Clear-Host
+        Write-Host "================ $Title ================"
+        Write-Host "Y: Press 'Y' to do this."
+        Write-Host "2: Press 'N' to skip this."
+        Write-Host "Q: Press 'Q' to stop the entire script."
+        $selection = Read-Host "Please make a selection"
+        switch ($selection)
+        {
+        'y' { choco install $ChocoInstall --version=5.60 -y }
+        'n' { Break }
+        'q' { Exit  }
+        }
+     }
+     until ($selection -match "y" -or $selection -match "n" -or $selection -match "q")
+    }
     function Show-Choco-Menu {
         param(
             [Parameter(Mandatory)]
@@ -43,7 +71,7 @@ $tweaks = @(
     }
 
     Function DownloadXampp{
-        Show-Choco-Menu -Title "Do you want to install Xampp?" -ChocoInstall "xamppinstallation --version=5.60"
+        Show-Choco-Menu1 -Title "Do you want to install Xampp?" -ChocoInstall "xamppinstallation"
        
     }
     
