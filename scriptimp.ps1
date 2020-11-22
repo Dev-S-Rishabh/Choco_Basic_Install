@@ -36,7 +36,7 @@ $tweaks = @(
     }
 
     Function DownloadXampp{
-        choco install xamppinstallation --version=5.60 -y
+        choco install xamppinstallation --version 5.60 -y
        
     }
     
