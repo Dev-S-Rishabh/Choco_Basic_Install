@@ -3,75 +3,40 @@
 
 Write-Host "This is Rishabh Singh Script you are running so thank him for making your life a bit easier"
 $tweaks = @(
-	"RequireAdmin",
-    "CreateRestorePoint"
+    
+	"RequireAdmin"
     "InstallRishabhProgs"
+    "WriteHost"
+    "selectoption"
     "InstallNotepadplusplus"
     "InstallJDK"
     "InstallJRE"
     "Installvirtualmachine"
     "DownloadXampp"
     
-
-    function Show-Choco-Menu1 {
-        param(
-            [Parameter(Mandatory)]
-            [ValidateNotNullOrEmpty()]
-            [string]$Title,
-        
-            [Parameter(Mandatory)]
-            [ValidateNotNullOrEmpty()]
-            [string]$ChocoInstall
-        )
+    function WriteHost{
+        do{
        
-     do
-     {
-        Clear-Host
-        Write-Host "================ $Title ================"
-        Write-Host "Y: Press 'Y' to do this."
-        Write-Host "2: Press 'N' to skip this."
-        Write-Host "Q: Press 'Q' to stop the entire script."
-        $selection = Read-Host "Please make a selection"
-        switch ($selection)
+        Write-Host "Select a program you want to install"
+        Write-Host "1) XAMPP"
+        Write-Host "2) Notepad++"
+        Write-Host "3) JDK and JRE"
+        Write-Host "4) Virtual Machine"
+        Write-Host "5) Exit Program"
+        $choice=Read-Host "Chose a number for program to install"
+        switch($choice)
         {
-        'y' { choco install $ChocoInstall --version=5.60 -y }
-        'n' { Break }
-        'q' { Exit  }
+            1{DownloadXampp}
+            2{InstallNotepadplusplus}
+            3{InstallJDK ; InstallJRE}
+            4{Installvirtualmachine}
+            5{exit}
         }
-     }
-     until ($selection -match "y" -or $selection -match "n" -or $selection -match "q")
-    }
-    function Show-Choco-Menu {
-        param(
-            [Parameter(Mandatory)]
-            [ValidateNotNullOrEmpty()]
-            [string]$Title,
-        
-            [Parameter(Mandatory)]
-            [ValidateNotNullOrEmpty()]
-            [string]$ChocoInstall
-        )
-       
-     do
-     {
-        Clear-Host
-        Write-Host "================ $Title ================"
-        Write-Host "Y: Press 'Y' to do this."
-        Write-Host "2: Press 'N' to skip this."
-        Write-Host "Q: Press 'Q' to stop the entire script."
-        $selection = Read-Host "Please make a selection"
-        switch ($selection)
-        {
-        'y' { choco install $ChocoInstall -y }
-        'n' { Break }
-        'q' { Exit  }
-        }
-     }
-     until ($selection -match "y" -or $selection -match "n" -or $selection -match "q")
+    }until ($choice -eq 5)
     }
 
     Function DownloadXampp{
-        Show-Choco-Menu1 -Title "Do you want to install Xampp?" -ChocoInstall "xamppinstallation"
+        choco install xamppinstallation -version 5.60
        
     }
     
@@ -92,27 +57,29 @@ $tweaks = @(
 
 
 Function InstallNotepadplusplus {
-	Show-Choco-Menu -Title "Do you want to install Notepad++?" -ChocoInstall "notepadplusplus"
-}
+    
+	choco install notepadplusplus -y
+    }
 
 Function InstallJDK {
-	Show-Choco-Menu -Title "Do you want to install JDK?" -ChocoInstall "jdk8"
-}
+
+	choco install jdk8 -y
+    }
 
 Function InstallJRE {
-	Show-Choco-Menu -Title "Do you want to install JDK?" -ChocoInstall "jre8"
+    
+	choco install jre8 -y
+    
 }
 
 Function Installvirtualmachine{
-    Show-Choco-Menu -Title "Do you want to install Virtual Machine?" -ChocoInstall "virtualbox"
+ 
+    choco install virtualbox -y
+    
 }
 
 
-Function CreateRestorePoint {
-    Write-Output "Creating Restore Point incase something bad happens"
-    Enable-ComputerRestore -Drive "C:\"
-    Checkpoint-Computer -Description "RestorePoint1" -RestorePointType "MODIFY_SETTINGS"
-  }
+
 
 # Call the desired tweak functions
 $tweaks | ForEach { Invoke-Expression $_ }
