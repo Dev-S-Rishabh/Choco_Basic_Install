@@ -10,9 +10,9 @@
 ``` powershell -nop -c " iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Paneerdev/java-xampp/main/scriptimp.ps1'))" ```
 ### Your powershell window will look something like this.
 ![alt text](https://github.com/Paneerdev/java-xampp/blob/main/win3.png?raw=true)
-### Step 5:- After this step let the script run it will manage to install chocolatey and will give you the option for the programs you can install.Simply type 'y' for yes and 'n' for no for the programs you need to install.
-![alt text](https://github.com/Paneerdev/java-xampp/blob/main/win4.png?raw=true)
-### Step 6:- Simply install the programs you want and press n for another program installation.
+### Step 5:- After this step let the script run it will manage to install chocolatey and will give you the option for the programs you can install.Simply type the no in front of the program name to install the program or you want to exit the script press 5.
+![alt text](https://github.com/Paneerdev/java-xampp/blob/main/win6.png?raw=true)
+### Step 6:- Simply install the programs you want by entering the no in front of program and the script will install the program automatically.
 ### Some of the programs in this powershell window are 
 ### 1)Notepad++
 ### 2)JDK
