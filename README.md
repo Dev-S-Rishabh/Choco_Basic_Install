@@ -20,5 +20,5 @@
 ### 4)Virtual Box
 ### 5)Xampp
 ### 6)VSCODE
-### If you have any query regarding this script just simply mail Rishabh Singh at my official mail rishabhsingh.rs@hotmail.com
+### If you have any query regarding this script just simply mail Rishabh Singh at my official mail rishabh98818@gmail.com
 ## Thanks for using my small creation(Rishabh Singh).
